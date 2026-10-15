@@ -71,6 +71,7 @@
             color: #ffb6d5;
         }
 
+        /* Estilo geral dos botões */
         button {
             width: 100%;
             border: 2px solid transparent;
@@ -80,27 +81,49 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.25s ease,
-                        transform 0.25s ease,
-                        box-shadow 0.25s ease;
+            transition:
+                background-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
+        /* Botão principal */
         .botao-principal {
-    background-color: #ff4f91;
-    color: #ffffff;
-}
-
+            background: #ff4f91;
+            color: #ffffff;
         }
 
+        /* Botão secundário */
         .botao-secundario {
-    background-color: #ffffff;
-    color: #a00055;
+            background: #ffffff;
+            color: #a00055;
         }
 
-            .botao-secundario:hover {
-    background-color: #ffe0ec;
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        /*
+         * Alternativas das perguntas:
+         * todas começam com a mesma aparência.
+         */
+        .botao-opcao {
+            background: #ffffff;
+            color: #a00055;
+            border: 2px solid transparent;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Destaque somente quando o mouse passar por cima */
+        @media (hover: hover) {
+            .botao-principal:hover {
+                background-color: #ff78ab;
+                transform: scale(1.03);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            }
+
+            .botao-secundario:hover,
+            .botao-opcao:hover {
+                background-color: #ffe0ec;
+                transform: scale(1.03);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
             }
         }
 
@@ -111,12 +134,8 @@
         button:focus-visible {
             outline: 2px solid white;
             outline-offset: 4px;
-
-            button:focus:not(:focus-visible) {
-    outline: none;
-}
         }
-        
+
         #mensagem {
             margin-top: 20px;
             font-size: 17px;
@@ -315,31 +334,8 @@
             .pergunta-final,
             .coracao {
                 animation: none;
-
             }
-
-      
-
-@media (hover: hover) {
-    .botao-principal:hover {
-        background-color: #ff78ab;
-        transform: scale(1.03);
-        box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-    }
-
-    .botao-secundario:hover {
-        background-color: #ffe0ec;
-        transform: scale(1.03);
-        box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-    }
-}
-
-    }
-}
-
-
         }
-        
     </style>
 </head>
 
@@ -394,17 +390,17 @@
                     <h2>💕 Primeira pergunta</h2>
                     <p>Aonde foi o nosso primeiro encontro?</p>
 
-                    <button class="botao-principal"
+                    <button class="botao-opcao"
                         onclick="responder('Parque 🏞️')">
                         🏞️ Parque
                     </button>
 
-                    <button class="botao-secundario"
+                    <button class="botao-opcao"
                         onclick="responder('Cinema 🍿')">
                         🍿 Cinema
                     </button>
 
-                    <button class="botao-secundario"
+                    <button class="botao-opcao"
                         onclick="responder('Praia 🏝️')">
                         🏝️ Praia
                     </button>
@@ -442,17 +438,17 @@
                     <h2>Nosso próximo encontro 💕</h2>
                     <p>Qual será o nosso próximo encontro?</p>
 
-                    <button class="botao-principal"
+                    <button class="botao-opcao"
                         onclick="responderFinal('Um jantar romântico 🍽️')">
                         🍽️ Um jantar romântico
                     </button>
 
-                    <button class="botao-secundario"
+                    <button class="botao-opcao"
                         onclick="responderFinal('Assistir a um filme 🎬')">
                         🎬 Assistir a um filme
                     </button>
 
-                    <button class="botao-secundario"
+                    <button class="botao-opcao"
                         onclick="responderFinal('Uma aventura a dois 🌎')">
                         🌎 Uma aventura a dois
                     </button>
