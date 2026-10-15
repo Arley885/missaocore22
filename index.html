@@ -37,6 +37,8 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             animation: aparecer 1s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .coracao {
@@ -69,305 +71,261 @@
             color: #ffb6d5;
         }
 
+        button {
+            width: 100%;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.25s ease,
+                        transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
 
-button {
-    width: 100%;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-}
+        .botao-principal {
+            background: #ff4f91;
+            color: #ffffff;
+        }
 
-/* Cor normal do botão principal */
-.botao-principal {
-    background: #ff4f91;
-    color: #ffffff;
-}
+        .botao-secundario {
+            background: #ffffff;
+            color: #a00055;
+        }
 
-/* Cor normal dos botões secundários */
-.botao-secundario {
-    background: #ffffff;
-    color: #a00055;
-}
+        @media (hover: hover) {
+            .botao-principal:hover {
+                background: #ff78ab;
+                transform: scale(1.03);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            }
 
-/* Efeito somente ao passar o mouse */
-.botao-principal:hover {
-    background: #ff78ab;
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-}
+            .botao-secundario:hover {
+                background: #ff4f91;
+                color: #ffffff;
+                transform: scale(1.03);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            }
+        }
 
-.botao-secundario:hover {
-    background: #ff4f91;
-    color: #ffffff;
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-}
+        button:active {
+            transform: scale(0.98);
+        }
 
-/* Efeito ao pressionar */
-button:active {
-    transform: scale(0.98);
-}
+        button:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 4px;
+        }
 
-/* Foco visível ao navegar pelo teclado */
-button:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 3px;
+        #mensagem {
+            margin-top: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            min-height: 25px;
+        }
 
+        .rodape {
+            margin-top: 25px;
+            font-size: 12px;
+            opacity: 0.75;
+        }
 
-}
+        /* Corações flutuantes */
+        .flutuante {
+            position: fixed;
+            bottom: -40px;
+            font-size: 26px;
+            pointer-events: none;
+            animation: subir 5s linear forwards;
+            z-index: 10000;
+            opacity: 0;
+        }
 
-/* Não manter destaque visual após o clique */
-button:focus:not(:focus-visible) {
-    outline: none;
-    box-shadow: none;
-}
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
 
-button:active {
-    transform: scale(0.98);
-}
+            10% {
+                opacity: 1;
+            }
 
-button:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 4px;
-}
+            90% {
+                opacity: 1;
+            }
 
-#mensagem {
-    margin-top: 20px;
-    font-size: 17px;
-    font-weight: bold;
-    min-height: 25px;
-}
+            100% {
+                transform: translateY(-120vh) rotate(30deg);
+                opacity: 0;
+            }
+        }
 
-.rodape {
-    margin-top: 25px;
-    font-size: 12px;
-    opacity: 0.75;
-}
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
 
+            50% {
+                transform: scale(1.15);
+            }
+        }
 
-.flutuante {
-    position: fixed;
-    bottom: -40px;
-    font-size: 26px;
-    pointer-events: none;
-    animation: subir 5s linear forwards;
-    z-index: 10000;
-    opacity: 1;
-}
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
 
-@keyframes subir {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-120vh) rotate(30deg);
-        opacity: 0;
-    }
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-}
+        /* Abertura cinematográfica */
+        .tela-inicial {
+            border: 1px solid rgba(255, 182, 213, 0.65);
+            background: linear-gradient(
+                145deg,
+                rgba(70, 0, 48, 0.94),
+                rgba(35, 0, 40, 0.96)
+            );
+            box-shadow:
+                0 0 25px rgba(255, 79, 145, 0.18),
+                0 0 65px rgba(255, 79, 145, 0.12);
+        }
 
-@keyframes pulsar {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-}
+        .tela-inicial .coracao {
+            font-size: 78px;
+            filter: drop-shadow(0 0 18px rgba(255, 90, 160, 0.75));
+        }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .tela-inicial h1 {
+            animation: surgirTexto 1.2s ease both;
+        }
 
-@keyframes subir {
-    to {
-        transform: translateY(-110vh) rotate(25deg);
-        opacity: 0;
-    }
-}
+        .tela-inicial p {
+            animation: surgirTexto 1.6s ease both;
+        }
 
+        .container .botao-iniciar {
+            background: linear-gradient(135deg, #ff3f8e, #d90065);
+            color: #ffffff;
+            border: 1px solid #ffc0da;
+            box-shadow: 0 0 20px rgba(255, 63, 142, 0.45);
+            animation: brilhoBotao 2s ease-in-out infinite;
+            padding: 18px;
+            font-size: 17px;
+        }
 
-/* Aparência padrão dos botões, sem destaque */
-.container button.botao-principal,
-.container button.botao-secundario {
-    background: rgba(255, 255, 255, 0.12) !important;
-    color: #ffffff !important;
-    border: 2px solid transparent !important;
-    box-shadow: none !important;
-    transform: none;
-    opacity: 1;
-}
+        @keyframes surgirTexto {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
 
-/* Só muda quando o mouse estiver realmente sobre o botão */
-@media (hover: hover) {
-    .container button.botao-principal:hover,
-    .container button.botao-secundario:hover {
-        background: #ff4f91 !important;
-        color: #ffffff !important;
-        border-color: #ffffff !important;
-        box-shadow: 0 0 15px rgba(255, 105, 180, 0.5) !important;
-        transform: scale(1.03);
-    }
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-```css
-.pergunta-final {
-    background: linear-gradient(135deg, #ff4d88, #e91e63);
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 25px 20px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.35);
-    border: 2px solid #ffb6cf;
-    animation: pulsar 2s infinite;
-}
+        @keyframes brilhoBotao {
+            0%, 100% {
+                box-shadow: 0 0 12px rgba(255, 63, 142, 0.35);
+            }
 
-@keyframes pulsar {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.03);
-    }
-}
-```
+            50% {
+                box-shadow: 0 0 28px rgba(255, 63, 142, 0.8);
+            }
+        }
 
-/* Abertura cinematográfica */
-.tela-inicial {
-    border: 1px solid rgba(255, 182, 213, 0.65);
-    background: linear-gradient(
-        145deg,
-        rgba(70, 0, 48, 0.94),
-        rgba(35, 0, 40, 0.96)
-    );
-    box-shadow:
-        0 0 25px rgba(255, 79, 145, 0.18),
-        0 0 65px rgba(255, 79, 145, 0.12);
-}
+        /* Pergunta final */
+        .tela-final {
+            border-color: rgba(255, 182, 213, 0.9);
+            box-shadow: 0 0 35px rgba(255, 63, 142, 0.35);
+        }
 
-.tela-inicial .coracao {
-    font-size: 78px;
-    filter: drop-shadow(0 0 18px rgba(255, 90, 160, 0.75));
-}
+        .pergunta-final {
+            background: linear-gradient(135deg, #ff4d88, #c90059);
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 18px;
+            border: 2px solid #ffd0e2;
+            box-shadow: 0 0 25px rgba(255, 77, 136, 0.65);
+            animation: pulsarPedido 1.8s ease-in-out infinite;
+        }
 
-.tela-inicial h1 {
-    animation: surgirTexto 1.2s ease both;
-}
+        @keyframes pulsarPedido {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(255, 77, 136, 0.4);
+            }
 
-.tela-inicial p {
-    animation: surgirTexto 1.6s ease both;
-}
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 35px rgba(255, 77, 136, 0.8);
+            }
+        }
 
-.container .botao-iniciar {
-    background: linear-gradient(135deg, #ff3f8e, #d90065) !important;
-    color: #ffffff !important;
-    border: 1px solid #ffc0da !important;
-    box-shadow: 0 0 20px rgba(255, 63, 142, 0.45) !important;
-    animation: brilhoBotao 2s ease-in-out infinite;
-    padding: 18px;
-    font-size: 17px;
-}
+        /* Confetes da comemoração */
+        .confete {
+            position: fixed;
+            top: -15px;
+            z-index: 10001;
+            pointer-events: none;
+            animation: cairConfete 3.5s linear forwards;
+        }
 
-@keyframes surgirTexto {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes cairConfete {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
 
-@keyframes brilhoBotao {
-    0%, 100% {
-        box-shadow: 0 0 12px rgba(255, 63, 142, 0.35);
-    }
-    50% {
-        box-shadow: 0 0 28px rgba(255, 63, 142, 0.8);
-    }
-}
+        .celebracao {
+            border-color: #ffb6d5;
+            box-shadow: 0 0 40px rgba(255, 63, 142, 0.5);
+        }
 
-        
-/* Grande momento do pedido */
-.tela-final {
-    border-color: rgba(255, 182, 213, 0.9);
-    box-shadow: 0 0 35px rgba(255, 63, 142, 0.35);
-}
+        @media (max-width: 400px) {
+            .container {
+                padding: 28px 18px;
+            }
 
-.tela-final .pergunta-final {
-    background: linear-gradient(135deg, #ff4d88, #c90059);
-    color: white;
-    border: 2px solid #ffd0e2;
-    box-shadow: 0 0 25px rgba(255, 77, 136, 0.65);
-    animation: pulsarPedido 1.8s ease-in-out infinite;
-}
+            h1 {
+                font-size: 25px;
+            }
 
-@keyframes pulsarPedido {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 15px rgba(255, 77, 136, 0.4);
-    }
-    50% {
-        transform: scale(1.04);
-        box-shadow: 0 0 35px rgba(255, 77, 136, 0.8);
-    }
-}
+            .pergunta-final {
+                font-size: 1.6rem;
+                padding: 20px 12px;
+            }
+        }
 
-/* Confetes da comemoração */
-.confete {
-    position: fixed;
-    top: -15px;
-    z-index: 9999;
-    pointer-events: none;
-    animation: cairConfete 3.5s linear forwards;
-}
-
-@keyframes cairConfete {
-    to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .tela-inicial h1,
-    .tela-inicial p,
-    .botao-iniciar,
-    .tela-final .pergunta-final {
-        animation: none;
-    }
-}
-
-
-</style>
-       
+        @media (prefers-reduced-motion: reduce) {
+            .tela-inicial h1,
+            .tela-inicial p,
+            .botao-iniciar,
+            .pergunta-final,
+            .coracao {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<main class="container tela-inicial">
-    
+    <main class="container tela-inicial">
+
         <div class="coracao">❤️</div>
 
         <h1>Missão: Ganhar o coração de Thaís</h1>
@@ -381,14 +339,15 @@ button:focus-visible {
         <section class="missao">
             <h2>🎯 MISSÃO 01</h2>
             <p>
-                Você precisa responder essas perguntas para avançar 
+                Você precisa responder essas perguntas para avançar
                 para a pergunta final!
             </p>
         </section>
 
-        <button class="botao-principal botao-iniciar" onclick="iniciarMissao()">
-    💖 COMEÇAR MISSÃO 💖
-</button>
+        <button class="botao-principal botao-iniciar"
+            onclick="iniciarMissao()">
+            💖 COMEÇAR MISSÃO 💖
+        </button>
 
         <div id="mensagem"></div>
 
@@ -398,261 +357,263 @@ button:focus-visible {
 
     </main>
 
-   
-<script>
-    function iniciarMissao() {
-        const container = document.querySelector(".container");
-        container.classList.remove("tela-inicial");
+    <script>
+        function iniciarMissao() {
+            const container = document.querySelector(".container");
 
-        container.innerHTML = `
-            <div class="coracao">💖</div>
-            <h1>Missão 01 desbloqueada!</h1>
+            container.classList.remove("tela-inicial");
 
-            <p>Vamos começar nossa aventura? ❤️</p>
+            container.innerHTML = `
+                <div class="coracao">💖</div>
+                <h1>Missão 01 desbloqueada!</h1>
 
-            <section class="missao">
-                <h2>💕 Primeira pergunta</h2>
-                <p>Aonde foi o nosso primeiro encontro?</p>
+                <p>Vamos começar nossa aventura? ❤️</p>
 
-                <button class="botao-principal"
-                    onclick="responder('Parque 🏞️')">
-                    🏞️ Parque
-                </button>
+                <section class="missao">
+                    <h2>💕 Primeira pergunta</h2>
+                    <p>Aonde foi o nosso primeiro encontro?</p>
 
-                <button class="botao-secundario"
-                    onclick="responder('Cinema 🍿')">
-                    🍿 Cinema
-                </button>
+                    <button class="botao-principal"
+                        onclick="responder('Parque 🏞️')">
+                        🏞️ Parque
+                    </button>
 
-                <button class="botao-secundario"
-                    onclick="responder('Praia 🏝️')">
-                    🏝️ Praia
-                </button>
-            </section>
+                    <button class="botao-secundario"
+                        onclick="responder('Cinema 🍿')">
+                        🍿 Cinema
+                    </button>
 
-            <div id="mensagem"></div>
-        `;
+                    <button class="botao-secundario"
+                        onclick="responder('Praia 🏝️')">
+                        🏝️ Praia
+                    </button>
+                </section>
 
-        criarCoracoes();
-    }
+                <div id="mensagem"></div>
+            `;
 
-    function responder(resposta) {
-        document.getElementById("mensagem").innerHTML = `
-            <p>Você escolheu:</p>
-            <p>${resposta}</p>
-            <p>❤️ Vamos continuar?</p>
-
-            <button class="botao-principal"
-                onclick="proximaMissao()">
-                Próxima missão 🚀
-            </button>
-        `;
-
-        criarCoracoes();
-    }
-
-    function proximaMissao() {
-        const container = document.querySelector(".container");
-
-        container.innerHTML = `
-            <div class="coracao">💘</div>
-            <h1>Missão 02</h1>
-
-            <section class="missao">
-                <h2>Nosso próximo encontro 💕</h2>
-                <p>Qual será o nosso próximo encontro?</p>
-
-                <button class="botao-principal"
-                    onclick="responderFinal('Um jantar romântico 🍽️')">
-                    🍽️ Um jantar romântico
-                </button>
-
-                <button class="botao-secundario"
-                    onclick="responderFinal('Assistir a um filme 🎬')">
-                    🎬 Assistir a um filme
-                </button>
-
-                <button class="botao-secundario"
-                    onclick="responderFinal('Uma aventura a dois 🌎')">
-                    🌎 Uma aventura a dois
-                </button>
-            </section>
-
-            <div id="mensagem"></div>
-        `;
-
-        criarCoracoes();
-    }
-
-    function responderFinal(resposta) {
-    const container = document.querySelector(".container");
-        container.classList.add("tela-final");
-
-    container.innerHTML = `
-        <div class="coracao">💖</div>
-
-        <h1>Pergunta final desbloqueada!</h1>
-
-        <section class="missao">
-            <h2>💌 Uma mensagem para você</h2>
-
-            <p>
-                Thaís, acredito que já estamos no momento de avançar essa relação, 
-                cada tempo juntos, cada beijo, cada conversa, cada sorriso,
-                fizeram você se tornar alguém especial para mim.
-            </p>
-
-            <p>
-                E agora chegou a hora da pergunta mais importante
-                desta aventura...
-            </p>
-
-           <h2 class="pergunta-final">
-    💖 Quer namorar comigo? 💖
-</h2>
-
-            <button class="botao-principal"
-                onclick="aceitarPedido()">
-                ❤️ SIM, EU ACEITO!
-            </button>
-
-            <button class="botao-secundario"
-                onclick="NaoQuero()">
-                😡 Não, Não quero!
-            </button>
-        </section>
-
-        <div id="mensagem"></div>
-
-        <div class="rodape">
-            Independentemente da resposta, você é especial. 💕
-        </div>
-    `;
-
-    criarCoracoes();
-    }
-
-async function enviarRespostaFinal(resposta) {
-    const email = "arleydarocker@gmail.com";
-
-    try {
-        const envio = await fetch(
-            "https://formsubmit.co/ajax/" + email,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                    _subject: "Resposta ao pedido de namoro ❤️",
-                    pergunta: "Quer namorar comigo?",
-                    resposta: resposta
-                })
-            }
-        );
-
-        const dados = await envio.json();
-
-        if (!envio.ok || dados.success !== "true") {
-            alert("Não foi possível enviar a resposta por e-mail.");
+            criarCoracoes();
         }
-    } catch (erro) {
-        alert("Falha no envio. Verifique sua conexão com a internet.");
-    }
-}
 
-    function aceitarPedido() {
-        enviarRespostaFinal("SIM, EU ACEITO!");
-    const container = document.querySelector(".container");
-        container.classList.add("celebracao");
-        
+        function responder(resposta) {
+            document.getElementById("mensagem").innerHTML = `
+                <p>Você escolheu:</p>
+                <p>${resposta}</p>
+                <p>❤️ Vamos continuar?</p>
 
-    container.innerHTML = `
-        <div class="coracao">💖</div>
+                <button class="botao-principal"
+                    onclick="proximaMissao()">
+                    Próxima missão 🚀
+                </button>
+            `;
 
-        <h1>Você aceitou! 🥹❤️</h1>
+            criarCoracoes();
+        }
 
-        <p>
-            Essa era a resposta que eu estava esperando!
-        </p>
+        function proximaMissao() {
+            const container = document.querySelector(".container");
 
-        <p>
-            Que essa seja a primeira página
-            de uma história linda entre nós. 💑
-        </p>
+            container.innerHTML = `
+                <div class="coracao">💘</div>
+                <h1>Missão 02</h1>
 
-        <h2>Missão concluída! 🏆</h2>
+                <section class="missao">
+                    <h2>Nosso próximo encontro 💕</h2>
+                    <p>Qual será o nosso próximo encontro?</p>
 
-        <p>Com carinho, de alguém que gosta muito de você. 💌</p>
-    `;
-criarCoracoes();
-        criarConfetes();
-}
+                    <button class="botao-principal"
+                        onclick="responderFinal('Um jantar romântico 🍽️')">
+                        🍽️ Um jantar romântico
+                    </button>
 
-function NaoQuero() {
-    enviarRespostaFinal("NÃO, NÃO QUERO!");
-    document.getElementById("mensagem").innerHTML = `
-        <p>
-            🥰 Não precisa ter pressa!
-        </p>
+                    <button class="botao-secundario"
+                        onclick="responderFinal('Assistir a um filme 🎬')">
+                        🎬 Assistir a um filme
+                    </button>
 
-        <p>
-            Só queria que você soubesse o quanto é especial
-            para mim. Pense com carinho. ❤️
-        </p>
-    `;
+                    <button class="botao-secundario"
+                        onclick="responderFinal('Uma aventura a dois 🌎')">
+                        🌎 Uma aventura a dois
+                    </button>
+                </section>
 
-    criarCoracoes();
-{
-    
+                <div id="mensagem"></div>
+            `;
 
-function criarCoracoes() {
-    const simbolos = ["❤️", "💕", "💖", "💗", "💘"];
+            criarCoracoes();
+        }
 
-    for (let i = 0; i < 12; i++) {
-        const coracao = document.createElement("span");
+        function responderFinal(resposta) {
+            const container = document.querySelector(".container");
 
-        coracao.className = "flutuante";
-        coracao.textContent =
-            simbolos[Math.floor(Math.random() * simbolos.length)];
+            container.innerHTML = `
+                <div class="coracao">💖</div>
 
-        coracao.style.left = Math.random() * 95 + "vw";
-        coracao.style.animationDelay = Math.random() * 1.5 + "s";
+                <h1>Pergunta final desbloqueada!</h1>
 
-        document.body.appendChild(coracao);
+                <section class="missao">
+                    <h2>💌 Uma mensagem para você</h2>
 
-        setTimeout(() => {
-            coracao.remove();
-        }, 7000);
-    }
-}
+                    <p>
+                        Thaís, acredito que já estamos no momento de avançar
+                        essa relação. Cada tempo juntos, cada beijo, cada
+                        conversa e cada sorriso fizeram você se tornar
+                        alguém especial para mim.
+                    </p>
 
-}
+                    <p>
+                        E agora chegou a hora da pergunta mais importante
+                        desta aventura...
+                    </p>
 
-function criarConfetes() {
-    const simbolos = ["❤️", "💖", "💕", "✨", "🎉"];
+                    <h2 class="pergunta-final">
+                        💖 Quer namorar comigo? 💖
+                    </h2>
 
-    for (let i = 0; i < 70; i++) {
-        const confete = document.createElement("span");
-        confete.className = "confete";
-        confete.textContent =
-            simbolos[Math.floor(Math.random() * simbolos.length)];
+                    <button class="botao-principal"
+                        onclick="aceitarPedido()">
+                        ❤️ SIM, EU ACEITO!
+                    </button>
 
-        confete.style.left = Math.random() * 100 + "vw";
-        confete.style.fontSize = (14 + Math.random() * 18) + "px";
-        confete.style.animationDelay = Math.random() * 2 + "s";
+                    <button class="botao-secundario"
+                        onclick="NaoQuero()">
+                        😡 Não, Não quero!
+                    </button>
+                </section>
 
-        document.body.appendChild(confete);
+                <div id="mensagem"></div>
 
-        setTimeout(() => confete.remove(), 6000);
-    }
-}
+                <div class="rodape">
+                    Independentemente da resposta, você é especial. 💕
+                </div>
+            `;
 
-        
-    }
-</script>
+            container.classList.add("tela-final");
+            criarCoracoes();
+        }
 
+        async function enviarRespostaFinal(resposta) {
+            const email = "arleydarocker@gmail.com";
+
+            try {
+                const envio = await fetch(
+                    "https://formsubmit.co/ajax/" + email,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            _subject: "Resposta ao pedido de namoro ❤️",
+                            pergunta: "Quer namorar comigo?",
+                            resposta: resposta
+                        })
+                    }
+                );
+
+                const dados = await envio.json();
+
+                if (!envio.ok || !dados.success) {
+                    alert("Não foi possível confirmar o envio por e-mail.");
+                }
+            } catch (erro) {
+                alert(
+                    "Falha no envio. Verifique a conexão e tente novamente."
+                );
+            }
+        }
+
+        function aceitarPedido() {
+            enviarRespostaFinal("SIM, EU ACEITO!");
+
+            const container = document.querySelector(".container");
+
+            container.innerHTML = `
+                <div class="coracao">💖</div>
+
+                <h1>Você aceitou! 🥹❤️</h1>
+
+                <p>
+                    Essa era a resposta que eu estava esperando!
+                </p>
+
+                <p>
+                    Que essa seja a primeira página
+                    de uma história linda entre nós. 💑
+                </p>
+
+                <h2>Missão concluída! 🏆</h2>
+
+                <p>
+                    Com carinho, de alguém que gosta muito de você. 💌
+                </p>
+            `;
+
+            container.classList.add("celebracao");
+
+            criarCoracoes();
+            criarConfetes();
+        }
+
+        function NaoQuero() {
+            enviarRespostaFinal("NÃO, NÃO QUERO!");
+
+            document.getElementById("mensagem").innerHTML = `
+                <p>🥰 Não precisa ter pressa!</p>
+
+                <p>
+                    Só queria que você soubesse o quanto é especial
+                    para mim. Pense com carinho. ❤️
+                </p>
+            `;
+
+            criarCoracoes();
+        }
+
+        function criarCoracoes() {
+            const simbolos = ["❤️", "💕", "💖", "💗", "💘"];
+
+            for (let i = 0; i < 12; i++) {
+                const coracao = document.createElement("span");
+
+                coracao.className = "flutuante";
+                coracao.textContent =
+                    simbolos[Math.floor(Math.random() * simbolos.length)];
+
+                coracao.style.left = Math.random() * 95 + "vw";
+                coracao.style.animationDelay = Math.random() * 1.5 + "s";
+
+                document.body.appendChild(coracao);
+
+                setTimeout(() => coracao.remove(), 7000);
+            }
+        }
+
+        function criarConfetes() {
+            const simbolos = ["❤️", "💖", "💕", "✨", "🎉"];
+
+            for (let i = 0; i < 70; i++) {
+                const confete = document.createElement("span");
+
+                confete.className = "confete";
+                confete.textContent =
+                    simbolos[Math.floor(Math.random() * simbolos.length)];
+
+                confete.style.left = Math.random() * 100 + "vw";
+                confete.style.fontSize =
+                    (14 + Math.random() * 18) + "px";
+                confete.style.animationDelay = Math.random() * 2 + "s";
+
+                document.body.appendChild(confete);
+
+                setTimeout(() => confete.remove(), 6000);
+            }
+        }
+
+        // Corações flutuando desde a abertura.
+        criarCoracoes();
+    </script>
 
 </body>
 </html>
