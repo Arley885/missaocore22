@@ -381,6 +381,7 @@ button:focus-visible {
 <script>
     function iniciarMissao() {
         const container = document.querySelector(".container");
+        container.classList.remove("tela-inicial");
 
         container.innerHTML = `
             <div class="coracao">💖</div>
@@ -464,6 +465,7 @@ button:focus-visible {
 
     function responderFinal(resposta) {
     const container = document.querySelector(".container");
+        container.classList.add("tela-final");
 
     container.innerHTML = `
         <div class="coracao">💖</div>
@@ -542,6 +544,8 @@ async function enviarRespostaFinal(resposta) {
     function aceitarPedido() {
         enviarRespostaFinal("SIM, EU ACEITO!");
     const container = document.querySelector(".container");
+        container.classList.add("celebracao");
+        
 
     container.innerHTML = `
         <div class="coracao">💖</div>
@@ -562,6 +566,7 @@ async function enviarRespostaFinal(resposta) {
         <p>Com carinho, de alguém que gosta muito de você. 💌</p>
     `;
 criarCoracoes();
+        criarConfetes();
 }
 
 function NaoQuero() {
@@ -580,6 +585,44 @@ function NaoQuero() {
     criarCoracoes();
 }
 {
+    
+function criarCoracoes() {
+    const simbolos = ["❤️", "💕", "💖", "💗"];
+
+    for (let i = 0; i < 6; i++) {
+        const coracao = document.createElement("span");
+        coracao.className = "flutuante";
+        coracao.textContent =
+            simbolos[Math.floor(Math.random() * simbolos.length)];
+
+        coracao.style.left = Math.random() * 95 + "vw";
+        coracao.style.animationDelay = Math.random() * 1.5 + "s";
+
+        document.body.appendChild(coracao);
+
+        setTimeout(() => coracao.remove(), 6500);
+    }
+}
+
+function criarConfetes() {
+    const simbolos = ["❤️", "💖", "💕", "✨", "🎉"];
+
+    for (let i = 0; i < 70; i++) {
+        const confete = document.createElement("span");
+        confete.className = "confete";
+        confete.textContent =
+            simbolos[Math.floor(Math.random() * simbolos.length)];
+
+        confete.style.left = Math.random() * 100 + "vw";
+        confete.style.fontSize = (14 + Math.random() * 18) + "px";
+        confete.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(confete);
+
+        setTimeout(() => confete.remove(), 6000);
+    }
+}
+
         
     }
 </script>
