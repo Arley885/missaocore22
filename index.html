@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Missão: Conquistar o coração de Thaís ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: white;
+            background: linear-gradient(135deg, #19001f, #680044, #bd175b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 35px 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: aparecer 1s ease;
+        }
+
+        .coracao {
+            font-size: 65px;
+            animation: pulsar 1.2s infinite;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #ffe5f0;
+        }
+
+        .missao {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .missao h2 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #ffb6d5;
+        }
+
+
+button {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* Cor normal do botão principal */
+.botao-principal {
+    background: #ff4f91;
+    color: #ffffff;
+}
+
+/* Cor normal dos botões secundários */
+.botao-secundario {
+    background: #ffffff;
+    color: #a00055;
+}
+
+/* Efeito somente ao passar o mouse */
+.botao-principal:hover {
+    background: #ff78ab;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+.botao-secundario:hover {
+    background: #ff4f91;
+    color: #ffffff;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+/* Efeito ao pressionar */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Foco visível ao navegar pelo teclado */
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+
+
+}
+
+/* Não manter destaque visual após o clique */
+button:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+#mensagem {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.rodape {
+    margin-top: 25px;
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.flutuante {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    pointer-events: none;
+    animation: subir 5s linear forwards;
+    z-index: -1;
+}
+
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+
+/* Aparência padrão dos botões, sem destaque */
+.container button.botao-principal,
+.container button.botao-secundario {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border: 2px solid transparent !important;
+    box-shadow: none !important;
+    transform: none;
+    opacity: 1;
+}
+
+/* Só muda quando o mouse estiver realmente sobre o botão */
+@media (hover: hover) {
+    .container button.botao-principal:hover,
+    .container button.botao-secundario:hover {
+        background: #ff4f91 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.5) !important;
+        transform: scale(1.03);
+    }
+}
+
+```css
+.pergunta-final {
+    background: linear-gradient(135deg, #ff4d88, #e91e63);
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.35);
+    border: 2px solid #ffb6cf;
+    animation: pulsar 2s infinite;
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+```
+
+
+</style>
+       
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="coracao">❤️</div>
+
+        <h1>Missão: Ganhar o coração de Thaís</h1>
+
+        <p>
+            Olá, garota especial! 💌<br>
+            Você acaba de receber uma missão secreta.
+            Está pronta para descobrir?
+        </p>
+
+        <section class="missao">
+            <h2>🎯 MISSÃO 01</h2>
+            <p>
+                Descubra quem preparou esta pequena aventura
+                e por que você é a protagonista dela.
+            </p>
+        </section>
+
+        <button class="botao-principal" onclick="iniciarMissao()">
+            🚀 Começar minha missão
+        </button>
+
+        <div id="mensagem"></div>
+
+        <div class="rodape">
+            Uma aventura feita especialmente para você ✨
+        </div>
+
+    </main>
+
+   
+<script>
+    function iniciarMissao() {
+        const container = document.querySelector(".container");
+
+        container.innerHTML = `
+            <div class="coracao">💖</div>
+            <h1>Missão 01 desbloqueada!</h1>
+
+            <p>Vamos começar nossa aventura? ❤️</p>
+
+            <section class="missao">
+                <h2>💕 Primeira pergunta</h2>
+                <p>Aonde foi o nosso primeiro encontro?</p>
+
+                <button class="botao-principal"
+                    onclick="responder('Parque 🏞️')">
+                    🏞️ Parque
+                </button>
+
+                <button class="botao-secundario"
+                    onclick="responder('Cinema 🍿')">
+                    🍿 Cinema
+                </button>
+
+                <button class="botao-secundario"
+                    onclick="responder('Praia 🏝️')">
+                    🏝️ Praia
+                </button>
+            </section>
+
+            <div id="mensagem"></div>
+        `;
+
+        criarCoracoes();
+    }
+
+    function responder(resposta) {
+        document.getElementById("mensagem").innerHTML = `
+            <p>Você escolheu:</p>
+            <p>${resposta}</p>
+            <p>❤️ Vamos continuar?</p>
+
+            <button class="botao-principal"
+                onclick="proximaMissao()">
+                Próxima missão 🚀
+            </button>
+        `;
+
+        criarCoracoes();
+    }
+
+    function proximaMissao() {
+        const container = document.querySelector(".container");
+
+        container.innerHTML = `
+            <div class="coracao">💘</div>
+            <h1>Missão 02</h1>
+
+            <section class="missao">
+                <h2>Nosso próximo encontro 💕</h2>
+                <p>Qual será o nosso próximo encontro?</p>
+
+                <button class="botao-principal"
+                    onclick="responderFinal('Um jantar romântico 🍽️')">
+                    🍽️ Um jantar romântico
+                </button>
+
+                <button class="botao-secundario"
+                    onclick="responderFinal('Assistir a um filme 🎬')">
+                    🎬 Assistir a um filme
+                </button>
+
+                <button class="botao-secundario"
+                    onclick="responderFinal('Uma aventura a dois 🌎')">
+                    🌎 Uma aventura a dois
+                </button>
+            </section>
+
+            <div id="mensagem"></div>
+        `;
+
+        criarCoracoes();
+    }
+
+    function responderFinal(resposta) {
+    const container = document.querySelector(".container");
+
+    container.innerHTML = `
+        <div class="coracao">💖</div>
+
+        <h1>Pergunta final desbloqueada!</h1>
+
+        <section class="missao">
+            <h2>💌 Uma mensagem para você</h2>
+
+            <p>
+                Thaís, acredito que já estamos no momento de avançar essa relação, 
+                cada tempo juntos, cada beijo, cada conversa, cada sorriso,
+                fizeram você se tornar alguém especial para mim.
+            </p>
+
+            <p>
+                E agora chegou a hora da pergunta mais importante
+                desta aventura...
+            </p>
+
+           <h2 class="pergunta-final">
+    💖 Quer namorar comigo? 💖
+</h2>
+
+            <button class="botao-principal"
+                onclick="aceitarPedido()">
+                ❤️ SIM, EU ACEITO!
+            </button>
+
+            <button class="botao-secundario"
+                onclick="NaoQuero()">
+                😡 Não, Não quero!
+            </button>
+        </section>
+
+        <div id="mensagem"></div>
+
+        <div class="rodape">
+            Independentemente da resposta, você é especial. 💕
+        </div>
+    `;
+
+    criarCoracoes();
+    }
+
+    function aceitarPedido() {
+    const container = document.querySelector(".container");
+
+    container.innerHTML = `
+        <div class="coracao">💖</div>
+
+        <h1>Você aceitou! 🥹❤️</h1>
+
+        <p>
+            Essa era a resposta que eu estava esperando!
+        </p>
+
+        <p>
+            Que essa seja a primeira página
+            de uma história linda entre nós. 💑
+        </p>
+
+        <h2>Missão concluída! 🏆</h2>
+
+        <p>Com carinho, de alguém que gosta muito de você. 💌</p>
+    `;
+criarCoracoes();
+}
+
+function NaoQuero() {
+    document.getElementById("mensagem").innerHTML = `
+        <p>
+            🥰 Não precisa ter pressa!
+        </p>
+
+        <p>
+            Só queria que você soubesse o quanto é especial
+            para mim. Pense com carinho. ❤️
+        </p>
+    `;
+
+    criarCoracoes();
+}
+{
+        
+    }
+</script>
+
+
+</body>
+</html>
