@@ -403,7 +403,7 @@ button:focus-visible {
     }
 
 async function enviarRespostaFinal(resposta) {
-    const email = "SEU_EMAIL_AQUI";
+    const email = "arleydarocker@gmail.com";
 
     try {
         const envio = await fetch(
@@ -433,6 +433,7 @@ async function enviarRespostaFinal(resposta) {
 }
 
     function aceitarPedido() {
+        enviarRespostaFinal("SIM, EU ACEITO!");
     const container = document.querySelector(".container");
 
     container.innerHTML = `
@@ -457,6 +458,7 @@ criarCoracoes();
 }
 
 function NaoQuero() {
+    enviarRespostaFinal("NÃO, NÃO QUERO!");
     document.getElementById("mensagem").innerHTML = `
         <p>
             🥰 Não precisa ter pressa!
