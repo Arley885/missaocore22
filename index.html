@@ -113,6 +113,7 @@
 
         /* Destaque somente quando o mouse passar por cima */
        
+
 @media (hover: hover) and (pointer: fine) {
     .botao-principal:hover {
         background-color: #ff78ab;
@@ -125,18 +126,17 @@
         background-color: #ffe0ec;
         transform: scale(1.03);
         box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-
     }
+}
 
+button:active {
+    transform: scale(0.98);
+}
 
-        button:active {
-            transform: scale(0.98);
-        }
-
-        button:focus-visible {
-            outline: 2px solid white;
-            outline-offset: 4px;
-        }
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
 
         #mensagem {
             margin-top: 20px;
