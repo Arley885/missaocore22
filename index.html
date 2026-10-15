@@ -402,6 +402,36 @@ button:focus-visible {
     criarCoracoes();
     }
 
+async function enviarRespostaFinal(resposta) {
+    const email = "SEU_EMAIL_AQUI";
+
+    try {
+        const envio = await fetch(
+            "https://formsubmit.co/ajax/" + email,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    _subject: "Resposta ao pedido de namoro ❤️",
+                    pergunta: "Quer namorar comigo?",
+                    resposta: resposta
+                })
+            }
+        );
+
+        const dados = await envio.json();
+
+        if (!envio.ok || dados.success !== "true") {
+            alert("Não foi possível enviar a resposta por e-mail.");
+        }
+    } catch (erro) {
+        alert("Falha no envio. Verifique sua conexão com a internet.");
+    }
+}
+
     function aceitarPedido() {
     const container = document.querySelector(".container");
 
