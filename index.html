@@ -287,6 +287,57 @@ button:focus-visible {
     }
 }
 
+        
+/* Grande momento do pedido */
+.tela-final {
+    border-color: rgba(255, 182, 213, 0.9);
+    box-shadow: 0 0 35px rgba(255, 63, 142, 0.35);
+}
+
+.tela-final .pergunta-final {
+    background: linear-gradient(135deg, #ff4d88, #c90059);
+    color: white;
+    border: 2px solid #ffd0e2;
+    box-shadow: 0 0 25px rgba(255, 77, 136, 0.65);
+    animation: pulsarPedido 1.8s ease-in-out infinite;
+}
+
+@keyframes pulsarPedido {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 77, 136, 0.4);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 35px rgba(255, 77, 136, 0.8);
+    }
+}
+
+/* Confetes da comemoração */
+.confete {
+    position: fixed;
+    top: -15px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: cairConfete 3.5s linear forwards;
+}
+
+@keyframes cairConfete {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tela-inicial h1,
+    .tela-inicial p,
+    .botao-iniciar,
+    .tela-final .pergunta-final {
+        animation: none;
+    }
+}
+
 
 </style>
        
