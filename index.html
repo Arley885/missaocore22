@@ -231,6 +231,62 @@ button:focus-visible {
 }
 ```
 
+/* Abertura cinematográfica */
+.tela-inicial {
+    border: 1px solid rgba(255, 182, 213, 0.65);
+    background: linear-gradient(
+        145deg,
+        rgba(70, 0, 48, 0.94),
+        rgba(35, 0, 40, 0.96)
+    );
+    box-shadow:
+        0 0 25px rgba(255, 79, 145, 0.18),
+        0 0 65px rgba(255, 79, 145, 0.12);
+}
+
+.tela-inicial .coracao {
+    font-size: 78px;
+    filter: drop-shadow(0 0 18px rgba(255, 90, 160, 0.75));
+}
+
+.tela-inicial h1 {
+    animation: surgirTexto 1.2s ease both;
+}
+
+.tela-inicial p {
+    animation: surgirTexto 1.6s ease both;
+}
+
+.container .botao-iniciar {
+    background: linear-gradient(135deg, #ff3f8e, #d90065) !important;
+    color: #ffffff !important;
+    border: 1px solid #ffc0da !important;
+    box-shadow: 0 0 20px rgba(255, 63, 142, 0.45) !important;
+    animation: brilhoBotao 2s ease-in-out infinite;
+    padding: 18px;
+    font-size: 17px;
+}
+
+@keyframes surgirTexto {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes brilhoBotao {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(255, 63, 142, 0.35);
+    }
+    50% {
+        box-shadow: 0 0 28px rgba(255, 63, 142, 0.8);
+    }
+}
+
 
 </style>
        
@@ -238,8 +294,8 @@ button:focus-visible {
 
 <body>
 
-    <main class="container">
-
+<main class="container tela-inicial">
+    
         <div class="coracao">❤️</div>
 
         <h1>Missão: Ganhar o coração de Thaís</h1>
@@ -258,9 +314,9 @@ button:focus-visible {
             </p>
         </section>
 
-        <button class="botao-principal" onclick="iniciarMissao()">
-            🚀 Começar minha missão
-        </button>
+        <button class="botao-principal botao-iniciar" onclick="iniciarMissao()">
+    💖 COMEÇAR MISSÃO 💖
+</button>
 
         <div id="mensagem"></div>
 
